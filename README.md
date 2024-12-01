@@ -3,7 +3,7 @@ g++ -o mygit main.cpp -lssl -lcrypto -lz
 
 COMMANDS:
 
-## 1.init
+ 1.init
 
 -->Initializes .mygit repository by creating
 .mygit/objects
@@ -11,14 +11,14 @@ COMMANDS:
 .mygit.HEAD -->points to the initial working branch master
 -->Sets up the basic repository structure
 
-## 2.hash-object
+2.hash-object
 
 ./mygit hash-object [-w] file_name
 
 -->without flag, just compute the hash-value for the file content and print it
 -->with flag , create a blob object with 1st two digits of its sha-value in the .mygit/objects folder
 
-## 3.cat-file
+3.cat-file
 
 ./mygit cat-file <flag> <file_name>
 
@@ -26,36 +26,35 @@ flags: -p: displays the content of file
 -s: displays the size of the file
 -t: displays the type of the file(tree/blob)
 
-## 4.write-tree
+4.write-tree
 
 ./mygit write-tree
 
 -->It takes the current working directory and computes the hash on the directory structure and the hash is stored in ./mygit/objects
 -->here I'm excluding ./mygit(repo),mygit(exe file),main.cpp,.vscode files from the write-tree command
 
-## 5.List Tree
+5.List Tree
 
 ./mygit ls-tree [--name-only] <tree_sha>
 
 -->Given a tree_sha value it prints the structure of tree contents and their details
 -->with --name-only, it prints only the directory & file names in the tree structure
 
-## 6.Add Files
+6.Add Files
 
 For the 1st time staging , INDEX file gets created
 
 ./mygit add . -->add all files in the cuurent directory to staging area
 ./mygit add file1 file2... --> adds the mentioned files to staging area
 
-## 7.Commit Changes
+7.Commit Changes
 
 ./mygit commit [-m] [commit_msg]
 
 When we use commit command, it creates a new commit object, all the file details in staging area are pushed as a batch to objects folder by computing the commit hash for the commit object.
-t
 When the commit occurs, index file is erased as all of them are committed now, and the master file in .mygit/refs/master points to the new commit object
 
-## 8.Log Command
+8.Log Command
 
 ./mygit log
 
@@ -68,7 +67,7 @@ author:
 Committer:
 Commit msg:
 
-## 9.Checkout Command
+9.Checkout Command
 
 ./mygit checkout <commit_hash>
 
